@@ -94,23 +94,7 @@
                         <!-- Post Comment & Reply -->
                         <div class="post-comments-wrap mt-70">
                             <h4>Пікірлер</h4>
-
-
-                            <!-- Single Comment -->
-                            <div class="single-comment-wrapper">
-                                <div class="single-post-comment media flex-column flex-sm-row">
-
-                                    <div class="comment-content media-body">
-                                        <div class="d-flex align-items-center">
-                                            <h5>Pamela Pavliscak</h5>
-                                            <span>12 Feb 2019</span>
-                                        </div>
-                                        <p>Duis rhoncus dui venenatis consequat porttitor. Etiam aliquet congue consequat. In posuere, nunc sit amet laoreet blandit, urna sapien imperdiet lectus, et molestie sem tortor quis dui.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Single Comment -->
+{% for comment in comments %}
 
                             <!-- Single Comment -->
                             <div class="single-comment-wrapper">
@@ -118,31 +102,47 @@
 
                                     <div class="comment-content media-body">
                                         <div class="d-flex align-items-center">
-                                            <h5>Jerrard Spool</h5>
-                                            <span>5 Jan 2019</span>
+                                            <h5>{{ comment.author }}</h5>
+                                            <span>{{ comment.created_date|date:"d M Y"}}</span>
                                         </div>
-                                        <p>Quisque suscipit ipsum est, eu venenatis leo ornare eget. Ut porta facilisis elementum. Sed condimentum sed massa quis ullamcorper. Donec at scelerisque neque.</p>
-
+                                        {{comment.comment}}
                                     </div>
                                 </div>
                             </div>
                             <!-- End of Single Comment -->
+{% endfor %}
+
                         </div>
                         <!-- End Post Comment & Reply -->
+
 
                         <!-- Comment Form -->
                         <div class="comments-form mt-70">
                             <h4>Өз пікіріңізді қалдырыңыз</h4>
-                            <form action="#">
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="bg-danger p-2 mb-4">
+            <div class="text-white">{{ message }}</div>
+        </div>
+
+    {% endfor %}
+{% endif %}
+
+                            <form method="post" action="">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input class="theme-input-style" type="text" placeholder="Есіміңіз">
+
+                                        <input class="theme-input-style" type="text" name="author" placeholder="Есіміңіз">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input class="theme-input-style" type="text" placeholder="Почтаңыз">
+                                         {{ form.errors.email }}
+                                        <input class="theme-input-style" type="text" name="email" placeholder="Почтаңыз">
                                     </div>
                                     <div class="col-12">
-                                        <textarea class="theme-input-style" placeholder="Өз пікіріңіз"></textarea>
+                                         {{ form.errors.comment }}
+                                        <textarea class="theme-input-style" name='comment' placeholder="Өз пікіріңіз"></textarea>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn">Пікір қалдыру</button>
@@ -151,6 +151,7 @@
                             </form>
                         </div>
                         <!-- End Comment Form -->
+
                     </div>
                     <!-- Blog Details End -->
                 </div>

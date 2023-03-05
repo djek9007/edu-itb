@@ -77,6 +77,7 @@ class Post(models.Model):
 
 
 class Files(models.Model):
+    """Файл тіркемелері"""
     post = models.ForeignKey(Post, verbose_name='Файл тіркемелері', on_delete=models.CASCADE,  related_name='fileitems',)
     file = models.FileField('Файл жүктеуге', upload_to=page_file_item, blank=True, null=True, validators=[FileExtensionValidator(['pdf'])])
     description = models.CharField(verbose_name='Файл атауы', max_length=250, blank=True, null=True)
@@ -85,3 +86,16 @@ class Files(models.Model):
     class Meta:
         verbose_name = "Файл"
         verbose_name_plural = "Файлдар"
+
+class Comment(models.Model):
+    """пікірлер"""
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Пост',related_name='comments',)
+    author = models.CharField(verbose_name='Есімі', max_length=100)
+    email = models.EmailField(verbose_name='Email',max_length=50)
+    comment = models.TextField(verbose_name='Пікіріңіз')
+    published = models.BooleanField("Көрсету?", default=True)
+    created_date = models.DateTimeField("Пікір жазылған күн", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Пікір"
+        verbose_name_plural = "Пікірлер"
