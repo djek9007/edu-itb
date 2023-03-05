@@ -144,14 +144,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #STATIC_DIR = os.path.join(BASE_DIR, '/bmso/static/')
-STATICFILES_DIRS = [os.path.join('static_origin'),]
-STATIC_ROOT = os.path.join('static/')
+STATICFILES_DIRS = [os.path.join(getenv('STATICFILES_DIRS')),]
+STATIC_ROOT = os.path.join(getenv('STATIC_ROOT'))
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join('media')
+MEDIA_ROOT = os.path.join(getenv('MEDIA_ROOT'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
