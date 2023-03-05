@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load cropping %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block content %}
+
+    <!-- Page Title -->
+    <section class="pt-140 pb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title">
+                        <h2 class="text-center">{{ category.name }}</h2>
+                        <ul class="list-inline">
+                            <li><a href="{% url 'blog:home' %}">Басты бет</a></li>
+                            <li>{{ category.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Page Title -->
+
+    <!-- Blog -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for post in posts %}
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Single Blog -->
+                    <div class="single-blog-item">
+                        <!-- Blog Image -->
+                        <div class="blog-image">
+                             <img src="{% cropped_thumbnail post "cropping" scale=1 %}" {{ news.title }}>
+                        </div>
+                        <!-- End Blog Image -->
+
+                        <div class="blog-content">
+                            <a href="{{post.get_absolute_url}}" class="posted">{{ news.published_date|date:"d M Y" }}</a>
+
+                            <h3><a href="{{post.get_absolute_url}}">{{ post.title}}</a></h3>
+{{ post.short }}
+                        </div>
+
+                    </div>
+                    <!-- End Single Blog -->
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Blog Pagination -->
+                    <div class="pagination justify-content-center">
+                        <!-- Start theme pagination -->
+                        <ul class="nav align-items-center">
+                            <li class="nav-btn prev">
+                                <a class="disabled" href="#">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li><span class="active">1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li class="nav-btn next">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Blog Pagination End -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Blog -->
+{% endblock %}

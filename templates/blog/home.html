@@ -1,0 +1,411 @@
+{% extends 'base.html' %}
+{% load static cropping  %}
+{% block content %}
+
+<!-- Background image -->
+<div class="bg-image">
+
+<!-- Background image -->
+    <!-- Banner -->
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div class="banner d-flex flex-wrap align-items-center" style="background-image: url('{% static 'assets/img/bg.png' %}');
+        background-repeat: no-repeat;
+               height: 50vh" >
+            <div class="banner_slider ">
+                <!-- Single Slider -->
+                <div class="single_slide ">
+                    <div class="container ">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+
+                                <!-- Slider Content -->
+                                <div class="banner_content text-center">
+                                    <h1 class="mt-0 mb-0 pb-0 pt-0">БІЛІМ АКАДЕМИЯСЫ</h1>
+                                    <p class="mt-0 mb-0 pb-0 pt-0 h3 text-muted">
+                                        <strong>инновация, трансформация, трансляция</strong>
+                                        </p>
+                                    <p class="mb-3 h4 text-muted">
+                                    Сандық ғасыр үнемі ізденіске итермелейді, ізденістің жолы үнемі өзгеріп трансформацияланады, осы өзгеріс пен ізденісті заманауи мұғалім трансляциялайды
+                                    </p>
+
+                                </div>
+                                <!-- End Slider Content -->
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- End Single Slider -->
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End Banner -->
+
+    <!-- Services -->
+    <section class="pt-140 pb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>Білім беру ұйымдарымен қалай жұмыс істейміз ...</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 ">
+                    <!-- Single Service -->
+                    <div class="single-service pl-4 text-center">
+                        <!-- Icon -->
+                        <div class="icon text-center">
+                            <img src="{% static 'assets/img/icon/service-1.svg' %}"  alt="">
+                        </div>
+                        <!-- End Icon -->
+
+                       <!-- Content -->
+                       <div class="content">
+                            <h3>БІЛІМ БЕРУ ҰЙЫМЫНЫҢ СҰРАНЫСЫН АНЫҚТАУ</h3>
+
+                            <p>ұйым әкімшілігі және жетекші мамандарымен пікір алмасу арқылы сұранысты анықтау
+                            </p>
+             </div>
+                        <!-- End Content -->
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- Single Service -->
+                    <div class="single-service  pl-4  text-center">
+                        <!-- Icon -->
+                        <div class="icon text-center">
+                            <img src="{% static 'assets/img/icon/plan.svg' %}"  alt="">
+                        </div>
+                        <!-- End Icon -->
+
+                        <!-- Content -->
+                        <div class="content">
+                            <h3>ҰЙЫМҒА ҒЫЛЫМИ-ӘДІСТЕМЕЛІК ҚОЛДАУ ЖОСПАРЫН ҚҰРУ</h3>
+
+                            <p>нақты проблеманы шешуге арналған бағдарламаны бекіту, келісімшартқа отыру
+                            </p>
+                        </div>
+                        <!-- End Content -->
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- Single Service -->
+                    <div class="single-service pl-4  text-center">
+                        <!-- Icon -->
+                        <div class="icon text-center">
+                            <img src="{% static 'assets/img/icon/analyz.svg' %}"  alt="">
+                        </div>
+                        <!-- End Icon -->
+
+                        <!-- Content -->
+                        <div class="content">
+                            <h3>МӘСЕЛЕЛЕРДІ ШЕШУДІҢ ЖОЛЫН ҰСЫНУ</h3>
+                            <p>авторлық әзірлемелер мен ізденіс негізінде ұйымға технологиялық шешімдер ұсыну, қолдануға үйрету
+                            </p>
+                        </div>
+                        <!-- End Content -->
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Single Service -->
+                        <div class="single-service pl-4  text-center">
+                            <!-- Icon -->
+                            <div class="icon text-center">
+                                <img src="{% static 'assets/img/icon/puzzle.svg' %}"  alt="">
+                            </div>
+                            <!-- End Icon -->
+
+                            <!-- Content -->
+                            <div class="content">
+                                <h3>ПРОБЛЕМАНЫ ШЕШУДЕ ҰЖЫМ КӨШБАСШЫЛАРЫН ІРІКТЕП, ҚОЛДАУ</h3>
+                                <p>Алгоритмдерге сүйеніп, ұйымға/пәндік бағытқа қажетті өзіндік өнім түзетін көшбасшы педагогтармен жұмыс жасау
+
+                                </p>
+                            </div>
+                            <!-- End Content -->
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Single Service -->
+                        <div class="single-service pl-4  text-center">
+                            <!-- Icon -->
+                            <div class="icon text-center">
+                                <img src="{% static 'assets/img/icon/target.svg' %}" alt="">
+                            </div>
+                            <!-- End Icon -->
+
+                            <!-- Content -->
+                            <div class="content">
+                                <h3>ПЕДАГОГТАР ӘЗІРЛЕМЕЛЕРІНІҢ ЕНУІНЕ, ТАРАЛУЫН СҮЙЕМЕЛДЕУ</h3>
+                                <p>Өнімді ендіру нәтижесінің мониторингі, педагогтар әзірлемелерінің жарияланып таралуына қолғабыс ету
+
+                                </p>
+                            </div>
+                            <!-- End Content -->
+                        </div>
+                        <!-- End Single Service -->
+                    </div>
+                </div>
+
+
+
+        </div>
+    </section>
+    <!-- End Services -->
+    <!-- Contact Info -->
+    <section class="pb-110">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>Біздің мақсатымыз</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <!-- Single Contact Info -->
+                    <div class="single-contact-info">
+                        <p><strong>Шығармашыл педагог</strong> жұмысын шыңдауға қажетті ғылыми‐әдістемелік көмекті көрсетіп, жетістікке деген сенімін қалыптастыру
+                        </p>
+                    </div>
+                    <!-- End Single Contact Info -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <!-- Single Contact Info -->
+                    <div class="single-contact-info">
+                        <p>
+                            Сабақ жоспарлары, сабақтан тыс жұмыс жоспарлары, коучтар және т.б. <strong>әзірлемелер</strong> дайындап, талқылап, оны баспадан шығаруға дейін сүйемелдеу
+
+                        </p>
+                    </div>
+                    <!-- End Single Contact Info -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <!-- Single Contact Info -->
+                    <div class="single-contact-info">
+
+                        <p>
+                            Шығармашыл педагогке ең аз дегенде 2-3 жыл <strong>жүйелі көмек</strong> көрсетіп, педагогтің <strong>кәсіби</strong> және тұлғалық дамуының келесі деңгейге дейін жеткізу
+
+                        </p>
+                    </div>
+                    <!-- End Single Contact Info -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <!-- Single Contact Info -->
+                    <div class="single-contact-info">
+                        <p>Әдістемелік құралдар, авторлық бағдарлама жаза алатын, ғылыми-әдістемелік талаптарды меңгерген педагогтен <strong>«ғылыми кеңесші»</strong> жасау
+
+                    </p>
+                    </div>
+                    <!-- End Single Contact Info -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Info -->
+    <!-- Feature -->
+    <section class="pb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>Курстар</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+            {% for course in courses %}
+                {% if forloop.counter|divisibleby:"2" %}
+                    <div class="row justify-content-between align-items-center pb-140">
+                <div class="col-lg-5">
+                    <!-- Feature Image -->
+                    <div class="mb-50 mb-lg-0">
+                        <img src="{% cropped_thumbnail course "cropping" scale=1 %}" {{ course.title }}>
+                    </div>
+                    <!-- End Feature Image -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- Section Title -->
+                    <div class="section-title style--two">
+                        <div class="title-border">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <h2>{{ course.title }}</h2>
+                         {{course.short|safe}}
+
+                    </div>
+                    <!-- End Section Title -->
+
+                    <a href="{{course.get_absolute_url}}" class="btn-inline mt-10">Толығырақ</a>
+                </div>
+            </div>
+                    {% else %}
+                     <div class="row pb-140">
+                <div class="col-lg-6">
+                    <!-- Section Title -->
+                    <div class="section-title style--two">
+                        <div class="title-border">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <h2>{{ course.title}}</h2>
+                         {{course.short|safe}}
+                    </div>
+                    <!-- End Section Title -->
+
+                    <a href="{{course.get_absolute_url}}" class="btn-inline mt-10">Толығырақ</a>
+                </div>
+                <div class="col-lg-6 order-first order-lg-last">
+                    <!-- Feature Image -->
+                    <div class="mb-50 mb-lg-0">
+                        <img src="{% cropped_thumbnail course "cropping" scale=1 %}" alt="{{ course.title }}">
+                    </div>
+                    <!-- End Feature Image -->
+                </div>
+            </div>
+                {% endif %}
+
+{% endfor %}
+
+
+
+        </div>
+
+    </section>
+    <!-- End Feature -->
+
+
+
+    <!-- Testimonial -->
+    <section class="pt-140 pb-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>Серіктестеріміз</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Partners -->
+                    <div class="brand-logo owl-carousel" data-owl-items="6" data-owl-autoplay="false"
+                        data-owl-responsive='{"0": {"items": "2"},"575":{"items": "3"},"768": {"items": "4"},"992": {"items": "6"}}'
+                    >
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-1.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-1.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-2.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-2.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-3.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-3.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-4.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-4.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-5.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-5.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                        <!-- Single Partner -->
+                        <a href="#" class="single-brand-logo">
+                            <img src="{% static 'assets/img/brand/brand-6.png' %}" data-rjs="2" alt="">
+                            <img src="{% static 'assets/img/brand/brand-6.png' %}" data-rjs="2" alt="">
+                        </a>
+                        <!-- End Single Partner -->
+
+                    </div>
+                    <!-- End of Partners -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonial -->
+
+    <!-- Blog -->
+    <section class="pt-140 pb-90 light-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>Жаңалықтар</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                {% for news in newses %}
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Single Blog -->
+                    <div class="single-blog-item">
+                        <!-- Blog Image -->
+                        <div class="blog-image">
+                           <a href="{{news.get_absolute_url}}">
+                               <img src="{% cropped_thumbnail news "cropping" scale=1 %}" {{ news.title }}>
+                        </div>
+                        <!-- End Blog Image -->
+
+                        <div class="blog-content">
+                            {{ news.published_date|date:"d M Y" }}
+
+                            <h3><a href="{{news.get_absolute_url}}">{{ news.title}}</a></h3>
+
+                        </div>
+                    </div>
+                    <!-- End Single Blog -->
+                </div>
+{% endfor %}
+            </div>
+
+            <a href="/zhaalytar/" class="btn-inline">Бөлімге өту</a>
+        </div>
+
+    </section>
+    <!-- End Blog -->
+
+{% endblock %}

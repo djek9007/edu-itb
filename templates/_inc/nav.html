@@ -1,0 +1,60 @@
+{% load menutags mptt_tags static%}
+{% show_menu as nodes %}
+<header class="header">
+    <div class="header-main">
+        <div class="container-fluid">
+            <div class="row align-items-center main-menu-wrapper justify-content-between">
+                <div class="col order-last order-sm-first">
+                    <!-- Header Menu -->
+                    <div class="main-menu d-flex align-items-center justify-content-end justify-content-sm-start">
+                        <!-- Menu Trigger -->
+                        <div class="menu-trigger">
+                            <span></span>
+                        </div>
+                        <!-- End Menu Trigger -->
+
+                        <!-- Main Menu -->
+                        <div class="nav-wrapper">
+                            <ul class="nav align-items-center">
+                                {% recursetree nodes %}
+
+                                    <li>{% if node.name %}
+                                        <a href="{% if node.slug %}/{{ node.slug }}/ {% elif node.id == 1 %}/{% else %}#{% endif %}">{{ node.name }}</a>
+                                    {% endif %}
+                                    {% if not node.is_leaf_node %}
+                                            <ul class="sub-menu">
+                                                {{ children }}
+                                            </ul>
+                                    {% endif %}
+                                    </li>
+                                {% endrecursetree %}
+                            </ul>
+                        </div>
+
+                        <!-- End Main Menu -->
+                    </div>
+                    <!-- End Header Menu -->
+                </div>
+
+                <div class="col text-sm-center logo-holder">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <img src="{% static 'assets/img/logo2.png' %}" data-rjs="2" alt="">
+                    </a>
+                    <!-- End Logo -->
+                </div>
+
+                <div class="col text-right d-none d-sm-block">
+                    <!-- Social Icons -->
+                    <ul class="social_icon_list">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://instagram.com/edu_itb.kz?igshid=ZDdkNTZiNTM="><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+
+                    </ul>
+                    <!-- End Social Icons -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

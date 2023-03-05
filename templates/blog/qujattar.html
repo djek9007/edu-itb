@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static cropping %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+        <!-- Services -->
+    <section class="pt-140 pb-110">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title -->
+                    <div class="section-title text-center">
+                        <h2>{{ title }}</h2>
+                    </div>
+                    <!-- End Section Title -->
+                </div>
+            </div>
+            <div class="row">
+{% for document in  documents %}
+ <div class="col-lg-12">
+
+                    <!-- Single Service -->
+                    <div class="single-service">
+                        <!-- Content -->
+                        <div class="content">
+                            <h3><a href="{{ document.get_absolute_url }}">{{ document.title}}</a></h3>
+                            {{document.short}}
+                        </div>
+                        <!-- End Content -->
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+{% endfor %}
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Services -->
+{% endblock %}

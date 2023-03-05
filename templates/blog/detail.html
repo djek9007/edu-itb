@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load cropping static%}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+
+
+    <!-- Blog -->
+    <section class="pb-140 pt-140">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Blog Details Begin -->
+                    <div class="blog-details">
+   <!-- Blog Details Image Begin -->
+                        {% if post.image %}
+                        <div class="blog-details-image text-center">
+                           <img src="{% cropped_thumbnail post "detail_photo" scale=1 %}" {{ post.title }}>
+                        </div>
+                        <!-- Blog Details Image End -->
+{% endif %}
+                        <!-- Post Title -->
+                        <div class="post-title">
+                            <h2>{{ post.title}}</h2>
+                        </div>
+                        <!-- End Post Title -->
+
+                        <div class="row">
+
+                        </div>
+
+     <!-- Post Meta Begin -->
+                        <div class="post-meta">
+                            <ul class="list-inline">
+                                <li>Санат: <a href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a></li>
+                                <li>Жарияланған күн: {{ post.published_date|date:"d M Y" }}</li>
+
+                            </ul>
+                        </div>
+                        <!-- Post Meta End -->
+                        <hr>
+
+                        <!-- Blog Details Content Begin -->
+                        <div class="blog-details-content">
+                            {{ post.text|safe }}
+
+                        </div>
+                        <!-- Blog Details Content End -->
+
+{% if fileitems %}
+<div class="container light-bg">
+<div class="note note-warning mb-3">
+
+<div class="row">
+<div class="col-md-12">
+    <div class="text-center pt-5">
+<h3 >
+  Тіркелген құжат
+  <small class="text-muted">(оқып танысуыңызға болады)</small>
+</h3>
+</div>
+</div>
+
+<div class="col-md-12">
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+{% for file in fileitems %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-heading{{ forloop.counter }}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="flush-collapse{{ forloop.counter }}">
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> {% if file.description %}{{ file.description}}{% else %}{{ post.title }}{% endif %}
+      </button>
+    </h2>
+    <div id="flush-collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ forloop.counter }}" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          <iframe id="pdf-js-viewer" src="{% static 'pdfjs/web/viewer.html' %}?file={{ file.file.url }}"
+        title="webviewer" frameborder="0" width="100%" height="600"></iframe>
+      </div>
+    </div>
+  </div>
+     <hr>
+{% endfor %}
+</div></div>
+
+</div>
+</div>
+
+
+</div>
+                        {% endif %}
+
+
+                        <!-- Post Comment & Reply -->
+                        <div class="post-comments-wrap mt-70">
+                            <h4>Пікірлер</h4>
+
+
+                            <!-- Single Comment -->
+                            <div class="single-comment-wrapper">
+                                <div class="single-post-comment media flex-column flex-sm-row">
+
+                                    <div class="comment-content media-body">
+                                        <div class="d-flex align-items-center">
+                                            <h5>Pamela Pavliscak</h5>
+                                            <span>12 Feb 2019</span>
+                                        </div>
+                                        <p>Duis rhoncus dui venenatis consequat porttitor. Etiam aliquet congue consequat. In posuere, nunc sit amet laoreet blandit, urna sapien imperdiet lectus, et molestie sem tortor quis dui.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Single Comment -->
+
+                            <!-- Single Comment -->
+                            <div class="single-comment-wrapper">
+                                <div class="single-post-comment media flex-column flex-sm-row">
+
+                                    <div class="comment-content media-body">
+                                        <div class="d-flex align-items-center">
+                                            <h5>Jerrard Spool</h5>
+                                            <span>5 Jan 2019</span>
+                                        </div>
+                                        <p>Quisque suscipit ipsum est, eu venenatis leo ornare eget. Ut porta facilisis elementum. Sed condimentum sed massa quis ullamcorper. Donec at scelerisque neque.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Single Comment -->
+                        </div>
+                        <!-- End Post Comment & Reply -->
+
+                        <!-- Comment Form -->
+                        <div class="comments-form mt-70">
+                            <h4>Өз пікіріңізді қалдырыңыз</h4>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input class="theme-input-style" type="text" placeholder="Есіміңіз">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="theme-input-style" type="text" placeholder="Почтаңыз">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="theme-input-style" placeholder="Өз пікіріңіз"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn">Пікір қалдыру</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End Comment Form -->
+                    </div>
+                    <!-- Blog Details End -->
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Blog -->
+{% endblock %}
