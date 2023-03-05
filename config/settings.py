@@ -33,7 +33,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', ]
+ALLOWED_HOSTS = ['*', 'edu-itb.kz', 'http://edu-itb.kz', 'https://edu-itb.kz']
 
 # Application definition
 
