@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'mptt',
     'menu.apps.MenuConfig',
     'blog.apps.BlogConfig',
-    'page.apps.PageConfig',
 ]
 
 from easy_thumbnails.conf import Settings as thumbnail_settings
