@@ -24,9 +24,9 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'edu-itb.kz', 'http://edu-itb.kz', 'https://edu-itb.kz', 'www.edu-itb.kz']
+ALLOWED_HOSTS = ['127.0.0.1', 'edu-itb.kz', 'http://edu-itb.kz', 'https://edu-itb.kz', 'www.edu-itb.kz',]
 
 
 # Application definition
@@ -141,9 +141,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
+else:
+    STATIC_ROOT = ['/home/c/ci73684/edu-itb.kz/public_html/static/',]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+
 STATICFILES_DIRS = [os.path.join(getenv('STATICFILES_DIRS')),]
 STATIC_ROOT = getenv('STATIC_ROOT')
 STATICFILES_FINDERS = [
