@@ -1,3 +1,5 @@
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django import forms
 from django.contrib import admin
 
 # Register your models here.
@@ -22,6 +24,13 @@ class CategoryAdmin(admin.ModelAdmin):
 class FileItemInline(admin.StackedInline):
     model = Files
 
+class PostAdminForm(forms.ModelForm):
+    """Виджет редактора ckeditor"""
+    text = forms.CharField(label="Сипаттамасы", widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Post
+        fields = '__all__'
+
 @admin.register(Post)
 class PostAdmin(ImageCroppingMixin, admin.ModelAdmin):
     """Статичные страницы"""
@@ -33,6 +42,7 @@ class PostAdmin(ImageCroppingMixin, admin.ModelAdmin):
     inlines = [FileItemInline,]
     # сверху админки показывает сохранить удалить
     save_on_top = True
+    form = PostAdminForm
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
