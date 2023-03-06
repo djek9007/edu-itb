@@ -1,7 +1,7 @@
 """config URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,10 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.shortcuts import render
 from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +33,3 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 admin.site.site_header = _("Сайтты әкімшілеу жүйесі")
 admin.site.site_title = _("Әкімші")
 admin.site.index_title = _("Жүйеге қош келдіңіз")
-
