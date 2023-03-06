@@ -165,7 +165,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
         'extraPlugins': ','.join(
             [
-                'youtube',
+                # 'youtube',
             ]
         ),
     },
