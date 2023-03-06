@@ -42,7 +42,7 @@ class PostAdmin(ImageCroppingMixin, admin.ModelAdmin):
     inlines = [FileItemInline,]
     # сверху админки показывает сохранить удалить
     save_on_top = True
-    form = PostAdminForm
+    #form = PostAdminForm
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
