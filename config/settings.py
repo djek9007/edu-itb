@@ -145,7 +145,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_DIR = os.path.join(BASE_DIR, '/bmso/static/')
 STATICFILES_DIRS = [os.path.join(getenv('STATICFILES_DIRS')),]
-STATIC_ROOT = os.path.join(getenv('STATIC_ROOT'))
+STATIC_ROOT = getenv('STATIC_ROOT')
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
