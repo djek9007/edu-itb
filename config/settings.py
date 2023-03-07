@@ -176,7 +176,7 @@ CKEDITOR_CONFIGS = {
         'allowedContent': True,
         'extraPlugins': ','.join(
             [
-                'youtube',
+            'youtube',
             ]
         ),
     },
