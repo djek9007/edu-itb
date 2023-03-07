@@ -173,6 +173,7 @@ CKEDITOR_UPLOAD_PATH = getenv('CKEDITOR_UPLOAD_PATH')
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
+        'allowedContent': True,
         'extraPlugins': ','.join(
             [
                 'youtube',
