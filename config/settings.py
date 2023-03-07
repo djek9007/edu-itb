@@ -177,10 +177,13 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(
             [
             'youtube',
+              'bootstrapTabs',
+
             ]
         ),
     },
 }
+
 EMAIL_HOST = getenv('EMAIL_HOST')
 EMAIL_HOST_USER = getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = getenv('EMAIL_HOST_PASSWORD')
