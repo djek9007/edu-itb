@@ -24,9 +24,11 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'edu-itb.kz', 'http://edu-itb.kz', 'https://edu-itb.kz', 'www.edu-itb.kz',]
+ALLOWED_HOSTS = ['http://127.0.0.1','127.0.0.1',
+                 'edu-itb.kz', 'http://edu-itb.kz',
+                 'https://edu-itb.kz', 'www.edu-itb.kz',]
 
 
 # Application definition
