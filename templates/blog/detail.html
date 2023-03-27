@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load cropping static%}
+{% load cropping static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 
@@ -12,16 +12,16 @@
 
                     <!-- Blog Details Begin -->
                     <div class="blog-details">
-   <!-- Blog Details Image Begin -->
+                        <!-- Blog Details Image Begin -->
                         {% if post.image %}
-                        <div class="blog-details-image text-center">
-                           <img src="{% cropped_thumbnail post "detail_photo" scale=1 %}" {{ post.title }}>
-                        </div>
-                        <!-- Blog Details Image End -->
-{% endif %}
+                            <div class="blog-details-image text-center">
+                                <img src="{% cropped_thumbnail post "detail_photo" scale=1 %}" {{ post.title }}>
+                            </div>
+                            <!-- Blog Details Image End -->
+                        {% endif %}
                         <!-- Post Title -->
                         <div class="post-title">
-                            <h2>{{ post.title}}</h2>
+                            <h2>{{ post.title }}</h2>
                         </div>
                         <!-- End Post Title -->
 
@@ -29,10 +29,11 @@
 
                         </div>
 
-     <!-- Post Meta Begin -->
+                        <!-- Post Meta Begin -->
                         <div class="post-meta">
                             <ul class="list-inline">
-                                <li>Санат: <a href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a></li>
+                                <li>Санат: <a href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a>
+                                </li>
                                 <li>Жарияланған күн: {{ post.published_date|date:"d M Y" }}</li>
 
                             </ul>
@@ -47,70 +48,77 @@
                         </div>
                         <!-- Blog Details Content End -->
 
-{% if fileitems %}
-<div class="container light-bg">
-<div class="note note-warning mb-3">
+                        {% if fileitems %}
+                            <div class="container light-bg">
+                                <div class="note note-warning mb-3">
 
-<div class="row">
-<div class="col-md-12">
-    <div class="text-center pt-5">
-<h3 >
-  Тіркелген құжат
-  <small class="text-muted">(оқып танысуыңызға болады)</small>
-</h3>
-</div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-center pt-5">
+                                                <h3>
+                                                    Тіркелген құжат
+                                                    <small class="text-muted">(оқып танысуыңызға болады)</small>
+                                                </h3>
+                                            </div>
+                                        </div>
 
-<div class="col-md-12">
+                                        <div class="col-md-12">
 
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-{% for file in fileitems %}
-  <div class="accordion-item p-2">
-    <h2 class="accordion-header" id="flush-heading{{ forloop.counter }}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="flush-collapse{{ forloop.counter }}">
-        <i class="fa fa-file-text-o" aria-hidden="true"></i> {% if file.description %}{{ file.description}}{% else %}{{ post.title }}{% endif %}
+                            <div class="accordion" id="accordionExample">
+                                {% for f in fileitems %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+      <button
+        class="accordion-button"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#collapse{{ forloop.counter }}"
+        aria-expanded="true"
+        aria-controls="collapse{{ forloop.counter }}"
+      >
+          {% if f.description %}
+          {{ f.description}}{% else %}{{ post.title }}{% endif %}
       </button>
     </h2>
-    <div id="flush-collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ forloop.counter }}" data-bs-parent="#accordionFlushExample">
+    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-mdb-parent="#accordionExample">
       <div class="accordion-body">
-          <iframe id="pdf-js-viewer" src="{% static 'pdfjs/web/viewer.html' %}?file={{ file.file.url }}"
-        title="webviewer" frameborder="0" width="100%" height="600"></iframe>
+          <iframe id="pdf-js-viewer" src="{% static 'pdfjs/web/viewer.html' %}?file={{ f.file.url }}" title="webviewer" width="100%" height="1200" frameborder="0"></iframe>
       </div>
     </div>
   </div>
-     <hr>
-{% endfor %}
-</div></div>
+                                {% endfor %}
 
 </div>
-</div>
+                                        </div>
+
+                                    </div>
+                                </div>
 
 
-</div>
+                            </div>
                         {% endif %}
 
                         <hr>
                         <!-- Post Comment & Reply -->
                         <div class="post-comments-wrap mt-70">
                             <h4>Пікірлер</h4>
-{% for comment in comments %}
+                            {% for comment in comments %}
 
-                            <!-- Single Comment -->
-                            <div class="single-comment-wrapper">
-                                <div class="single-post-comment media flex-column flex-sm-row">
+                                <!-- Single Comment -->
+                                <div class="single-comment-wrapper">
+                                    <div class="single-post-comment media flex-column flex-sm-row">
 
-                                    <div class="comment-content media-body">
-                                        <div class="d-flex align-items-center">
-                                            <h5>{{ comment.author }}</h5>
-                                            <span>{{ comment.created_date|date:"d M Y"}}</span>
+                                        <div class="comment-content media-body">
+                                            <div class="d-flex align-items-center">
+                                                <h5>{{ comment.author }}</h5>
+                                                <span>{{ comment.created_date|date:"d M Y" }}</span>
+                                            </div>
+                                            {{ comment.comment }}
                                         </div>
-                                        {{comment.comment}}
                                     </div>
                                 </div>
-                            </div>
-                            <!-- End of Single Comment -->
-{% endfor %}
+                                <!-- End of Single Comment -->
+                            {% endfor %}
 
                         </div>
                         <!-- End Post Comment & Reply -->
@@ -120,29 +128,32 @@
                         <div class="comments-form mt-70">
                             <h4>Өз пікіріңізді қалдырыңыз</h4>
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="bg-danger p-2 mb-4">
-            <div class="text-white">{{ message }}</div>
-        </div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="bg-danger p-2 mb-4">
+                                        <div class="text-white">{{ message }}</div>
+                                    </div>
 
-    {% endfor %}
-{% endif %}
+                                {% endfor %}
+                            {% endif %}
 
                             <form method="post" action="">
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-lg-6">
 
-                                        <input class="theme-input-style" type="text" name="author" placeholder="Есіміңіз">
+                                        <input class="theme-input-style" type="text" name="author"
+                                               placeholder="Есіміңіз">
                                     </div>
                                     <div class="col-lg-6">
-                                         {{ form.errors.email }}
-                                        <input class="theme-input-style" type="text" name="email" placeholder="Почтаңыз">
+                                        {{ form.errors.email }}
+                                        <input class="theme-input-style" type="text" name="email"
+                                               placeholder="Почтаңыз">
                                     </div>
                                     <div class="col-12">
-                                         {{ form.errors.comment }}
-                                        <textarea class="theme-input-style" name='comment' placeholder="Өз пікіріңіз"></textarea>
+                                        {{ form.errors.comment }}
+                                        <textarea class="theme-input-style" name='comment'
+                                                  placeholder="Өз пікіріңіз"></textarea>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn">Пікір қалдыру</button>

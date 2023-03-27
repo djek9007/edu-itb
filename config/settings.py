@@ -151,7 +151,8 @@ if DEBUG:
 else:
     STATIC_ROOT = ['/home/c/ci73684/edu-itb.kz/public_html/static/',]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 STATICFILES_DIRS = [os.path.join(getenv('STATICFILES_DIRS')),]
